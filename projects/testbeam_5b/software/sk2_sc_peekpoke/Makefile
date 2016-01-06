@@ -9,8 +9,9 @@ SCAN = sk2_sc_scan
 PEEK = sk2_sc_peek
 POKE = sk2_sc_poke
 BITBANG = sk2_sc_bitbang
+BITBANG_IPBUS = sk2_sc_bitbang_ipbus
 
-APPS = $(RESET) $(SCAN) $(PEEK) $(POKE) $(BITBANG)
+APPS = $(RESET) $(SCAN) $(PEEK) $(POKE) $(BITBANG) $(BITBANG_IPBUS)
 TMPS = sk2_sc_cur_state
 
 # Add any other object files to this list below
@@ -19,6 +20,7 @@ SCAN_OBJS = sk2_sc_scan.o SKIROC2_SC.o
 PEEK_OBJS = sk2_sc_peek.o SKIROC2_SC.o
 POKE_OBJS = sk2_sc_poke.o SKIROC2_SC.o
 BITBANG_OBJS = sk2_sc_bitbang.o SKIROC2_SC.o
+BITBANG_IPBUS_OBJS = sk2_sc_bitbang_ipbus.o SKIROC2_SC.o IPbus_simplified.o
 
 all: build install
 
@@ -39,6 +41,9 @@ $(POKE): $(POKE_OBJS)
 $(BITBANG): $(BITBANG_OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(BITBANG_OBJS) $(LDLIBS)
 
+$(BITBANG_IPBUS): $(BITBANG_IPBUS_OBJS)
+	$(CC) $(LDFLAGS) -o $@ $(BITBANG_IPBUS_OBJS) $(LDLIBS)
+
 clean:
 	-rm -f $(APPS) $(TMPS) *.elf *.gdb *.o
 
@@ -50,6 +55,7 @@ install: $(APPS)
 	$(TARGETINST) -d $(PEEK) /bin/$(PEEK)
 	$(TARGETINST) -d $(POKE) /bin/$(POKE)
 	$(TARGETINST) -d $(BITBANG) /bin/$(BITBANG)
+	$(TARGETINST) -d $(BITBANG_IPBUS) /bin/$(BITBANG_IPBUS)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<

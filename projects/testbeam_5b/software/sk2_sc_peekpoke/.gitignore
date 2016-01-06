@@ -6,3 +6,4 @@ sk2_sc_scan
 sk2_sc_peek
 sk2_sc_poke
 sk2_sc_bitbang
+sk2_sc_bitbang_ipbus
