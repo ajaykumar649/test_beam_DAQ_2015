@@ -26,6 +26,6 @@ unsigned int create_ipbus_write_txn_header(unsigned int start_addr, int nwords);
 
 unsigned int create_ipbus_write_txn_data(unsigned int data_word);
 
-void extract_ipbus_reply_txn(unsigned int* buffer, int buffer_len);
+void extract_ipbus_reply_txns(unsigned int* buffer, int buffer_len);
 
 #endif  // IPBUS_SIMPLIFIED_H_

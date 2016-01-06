@@ -38,6 +38,8 @@ void print_binary(unsigned int number);
 
 void print_binary_8bits(unsigned int number);
 
+void print_binary_32bits(unsigned int number);
+
 // Conversion string <--> uint640
 void string_to_uint640(const char * string, uint640_t * data);
 

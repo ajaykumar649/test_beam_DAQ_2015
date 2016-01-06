@@ -56,6 +56,18 @@ void print_binary_8bits(unsigned int number)
     }
 }
 
+void print_binary_32bits(unsigned int number)
+{
+    printf("0b");
+
+    int places = 32;
+    while(places > 0) {
+        //printf("%d", (number & (1 << places)));
+        printf((number & (1 << (places-1))) ? "1" : "0");
+        places--;
+    }
+}
+
 // Conversion string <--> uint640
 // from: http://en.cppreference.com/w/c/string/byte/strtoul
 void string_to_uint640(const char * string, uint640_t * data) {
