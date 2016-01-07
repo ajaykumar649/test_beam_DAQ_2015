@@ -1,0 +1,2 @@
+# sk2_sc_poke EN_PA 0
+EN_PA 0b0

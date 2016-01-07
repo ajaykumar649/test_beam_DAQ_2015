@@ -1,0 +1,2 @@
+# sk2_sc_peek EN_PA
+EN_PA 0b1
