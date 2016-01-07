@@ -9,7 +9,7 @@
 #define SR_IN  0x3
 
 // Global variables
-static unsigned * destination;
+static unsigned int * destination;
 static unsigned char dest_register[BITNSLOTS(8)];  // one byte
 
 // Functions
@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
 
     int debug = 0;
     if (debug) {
-        destination = (unsigned *) malloc(sizeof(unsigned));
+        destination = (unsigned int *) malloc(sizeof(unsigned int));
         dest_register[0] = 0x0;
 
         int test_data[8] = {0, 255, 127, 128, 13, 82, 148, 223};
@@ -161,7 +161,7 @@ int main(int argc, char *argv[])
             printf("line  3  : sr_in\n");
             printf("lines 4-7: not connected\n");
 
-            // Send
+            // Send serial data
             send_8bit_serial_data(test_data[i]);
 
             printf("Write finish\n");
@@ -173,7 +173,7 @@ int main(int argc, char *argv[])
     // Bit-bang (616 bits)
 
     {
-        destination = (unsigned *) malloc(sizeof(unsigned));
+        destination = (unsigned int *) malloc(sizeof(unsigned int));
         dest_register[0] = 0x0;
 
         printf("Writing:\n");
@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
         printf("line  3  : sr_in\n");
         printf("lines 4-7: not connected\n");
 
-        // Send
+        // Send serial data
         send_616bit_serial_data(control_register);
 
         printf("Write finish\n");

@@ -1,6 +1,7 @@
 *~
 *.pyc
 *.o
+sk2_sc_cur_state
 sk2_sc_reset
 sk2_sc_scan
 sk2_sc_peek
